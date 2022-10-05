@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:mtc_analytics/mtc_analytics.dart';
 
 void main() {
-  AnalyticsService analyticsService = AnalyticsService.instance;
   List<Tracker> trackers = [ConsoleTracker()];
+  
+  AnalyticsService analyticsService = AnalyticsService.instance;
   analyticsService.init(trackers);
 
   runApp(const MyApp());
