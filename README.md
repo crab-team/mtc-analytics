@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="./assets/mtc_logo.png" height="80" alt="MTC Logo" />
+	<img src="https://raw.githubusercontent.com/crab-team/mtc-analytics/main/assets/mtc_logo.png" height="80" alt="MTC Logo" />
 </p>
 
 <p align="center">
@@ -95,6 +95,6 @@ If our content like you can help us with a coffee to continue creating and colla
 
 <p align="center">
     <a href="https://www.buymeacoffee.com/morethancode">
-        <img src="./assets/bmc.png" height="80" alt="Buy a coffe button" />
+        <img src="https://raw.githubusercontent.com/crab-team/mtc-analytics/main/assets/bmc.png" height="80" alt="Buy a coffe button" />
     </a>
 </p>
