@@ -2,6 +2,12 @@
 	<img src="./assets/mtc_logo.png" height="80" alt="MTC Logo" />
 </p>
 
+<p align="center">
+    <a href="https://pub.dev/packages/focus_detector"><img src="https://img.shields.io/pub/v/mtc_analytics.svg" alt="Pub.dev Badge"></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="MIT License Badge"></a>
+    <a href="https://github.com/crab-team/mtc-analytics"><img src="https://img.shields.io/badge/platform-flutter-ff69b4.svg" alt="Flutter Platform Badge"></a>
+</p>
+
 # MTC - Analytics
 
 Forget about having to manage different analytics tools and keep them updated. This package was created to simplify the job of logging events across different analytics platforms.
@@ -68,7 +74,9 @@ class IncrementCounterEvent extends Event {
         );
 }
 ```
+
 After that, you can call `AnalyticsService.instance.track` and pass it the created event
+
 ```dart
 AnalyticsService.instance.track(
     IncrementCounterEvent(count: _counter),
