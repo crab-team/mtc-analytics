@@ -1,6 +1,6 @@
 name: mtc_analytics
 description: Package to manage analytics tools
-version: 1.0.0
+version: 1.0.0+2
 homepage: https://github.com/crab-team/mtc-analytics
 
 environment:
