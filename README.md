@@ -10,7 +10,7 @@
 
 # MTC - Analytics
 
-Forget about having to manage different analytics tools and keep them updated. This package was created to simplify the job of logging events across different analytics platforms.
+All in one. This package was created to simplify the job of logging events across different analytics platforms.
 
 ### TODO
 - [ ] Add Firebase Analytics tracker
