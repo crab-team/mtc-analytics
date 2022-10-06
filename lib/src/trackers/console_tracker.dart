@@ -14,6 +14,8 @@ class ConsoleTracker implements Tracker {
 
   @override
   void track(String eventName, [Map<String, dynamic>? properties]) {
-    debugPrint('ConsoleTracker $eventName ${properties != null ? ', $properties' : ''}');
+    debugPrint(
+      'ConsoleTracker $eventName ${properties != null ? ', $properties' : ''}',
+    );
   }
 }

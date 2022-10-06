@@ -20,14 +20,16 @@ class AnalyticsService {
   }
 
   void setUserProperties(Map<String, dynamic> properties) {
-    if (_trackers == null) throw Exception('Call init() before set user properties');
+    if (_trackers == null)
+      throw Exception('Call init() before set user properties');
     for (var tracker in _trackers!) {
       tracker.setUserProperties(properties);
     }
   }
 
   void track(Event event) {
-    if (_trackers == null) throw Exception('Call init() before track any event');
+    if (_trackers == null)
+      throw Exception('Call init() before track any event');
     for (var tracker in _trackers!) {
       tracker.track(event.name, event.properties);
     }

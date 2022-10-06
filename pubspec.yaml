@@ -1,5 +1,5 @@
 name: mtc_analytics
-description: Package to manage analytics tools
+description: All in one. This package was created to simplify the job of logging events across different analytics platforms.
 version: 1.0.0+2
 homepage: https://github.com/crab-team/mtc-analytics
 
