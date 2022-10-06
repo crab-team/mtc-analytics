@@ -12,16 +12,18 @@
 
 All in one. This package was created to simplify the job of logging events across different analytics platforms.
 
-### TODO
-- [ ] Add Firebase Analytics tracker
-
 ## Getting Started
 
-### iOS installation
+### Amplitude
 
-If you want to use Amplitude, you need to add `platform :ios, '10.0'` to your Podfile.
+If you want to use Amplitude in iOS, you need to add `platform :ios, '10.0'` to your Podfile.
 
 [Amplitude - Documentation](https://www.docs.developers.amplitude.com/data/sdks/flutter/)
+
+### Firebase Analytics
+
+To use Firebase Analytics, you need to add your app to your Firebase project in the Firebase console.
+[Firebase - Documentation](https://firebase.google.com/docs/analytics/get-started?platform=flutter)
 
 ## Features
 
@@ -44,13 +46,14 @@ AnalyticsService analyticsService = AnalyticsService.instance;
 analyticsService.init(trackers);
 ```
 
-At this time, we already implemented a `ConsoleTracker` for debugging purpose and `AmplitudeTracker`. You can use them
+At this time, we already implemented a `ConsoleTracker` for debugging purpose, `AmplitudeTracker` and `FirebaseTracker`. You can use them
 
 ```dart
 List<Tracker> trackers = [
     MyCustomTracker(),
     ConsoleTracker(),
     AmplitudeTracker(apiKey: 'api-key'),
+    FirebaseTracker(),
 ];
 
 AnalyticsService analyticsService = AnalyticsService.instance;
