@@ -21,6 +21,8 @@ All in one. This package was created to simplify the job of logging events acros
 
 If you want to use Amplitude, you need to add `platform :ios, '10.0'` to your Podfile.
 
+[Amplitude - Documentation](https://www.docs.developers.amplitude.com/data/sdks/flutter/)
+
 ## Features
 
 With this package you'll can:
