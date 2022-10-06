@@ -1,5 +1,4 @@
 import 'package:amplitude_flutter/amplitude.dart';
-import 'package:amplitude_flutter/identify.dart';
 import 'package:mtc_analytics/src/core/tracker.dart';
 
 class AmplitudeTracker implements Tracker {
@@ -17,9 +16,7 @@ class AmplitudeTracker implements Tracker {
 
   @override
   void setUserProperties(Map<String, dynamic> properties) {
-    final Identify identify = Identify();
-    properties.forEach((key, value) => identify.set(key, value));
-    _amplitude.identify(identify);
+    _amplitude.setUserProperties(properties);
   }
 
   @override
