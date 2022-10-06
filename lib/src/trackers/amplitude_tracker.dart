@@ -9,7 +9,7 @@ class AmplitudeTracker implements Tracker {
 
   AmplitudeTracker({required this.apiKey});
 
-  /// Amplitude Tracker: initialization. 
+  /// Amplitude Tracker: initialization.
   /// To init Amplitude you need to provide an API KEY
   @override
   void init() {

@@ -4,7 +4,7 @@ import 'package:mtc_analytics/mtc_analytics.dart';
 
 void main() {
   List<Tracker> trackers = [ConsoleTracker()];
-  
+
   AnalyticsService analyticsService = AnalyticsService.instance;
   analyticsService.init(trackers);
 

@@ -5,7 +5,7 @@ import 'package:mtc_analytics/mtc_analytics.dart';
 class FirebaseTracker implements Tracker {
   late final FirebaseAnalytics _analytics;
 
-  /// Firebase Tracker initialization. 
+  /// Firebase Tracker initialization.
   @override
   void init() {
     _analytics = FirebaseAnalytics.instance;

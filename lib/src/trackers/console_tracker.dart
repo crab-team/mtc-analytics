@@ -3,11 +3,10 @@ import 'package:mtc_analytics/src/core/tracker.dart';
 
 /// Console Tracker implementation.
 /// This is a tracker that we can use for debugging purposes.
-/// 
-/// For example: verify that every time we use our service we do it correctly, 
+///
+/// For example: verify that every time we use our service we do it correctly,
 /// that the events are “tracked” with the name and properties that we indicate, etc.
 class ConsoleTracker implements Tracker {
-
   /// Console Tracker initilization.
   @override
   void init() {
