@@ -3,11 +3,14 @@ import 'package:mtc_analytics/src/core/tracker.dart';
 
 /// Amplitude Tracker implementation.
 class AmplitudeTracker implements Tracker {
-  final Amplitude _amplitude = Amplitude.getInstance();
+  late Amplitude _amplitude;
 
+  final String projectName;
   final String apiKey;
 
-  AmplitudeTracker({required this.apiKey});
+  AmplitudeTracker({required this.projectName, required this.apiKey}) {
+    _amplitude = Amplitude.getInstance(instanceName: projectName);
+  }
 
   /// Amplitude Tracker: initialization.
   /// To init Amplitude you need to provide an API KEY
