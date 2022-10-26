@@ -30,3 +30,6 @@ migrate_working_dir/
 build/
 
 pubspec.lock
+
+.flutter-plugins
+.flutter-plugins-dependencies
