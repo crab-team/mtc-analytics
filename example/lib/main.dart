@@ -40,6 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
+    AnalyticsService.instance.setUserId('abc-123');
+
     AnalyticsService.instance.setUserProperties(
       {
         "name": "MTC - Flutter Team",
