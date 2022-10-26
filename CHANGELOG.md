@@ -1,10 +1,6 @@
-## 1.0.0+6
+## 1.1.0
 
-* Fix: Added `projectName` to `AmplitudeTracker`
-
-## 1.0.0+5
-
-* Added: Firebase Analytics
+* Added: `setUserId` to `AnalyticsService`
 
 ## 1.0.0
 
