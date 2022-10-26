@@ -20,6 +20,12 @@ class AmplitudeTracker implements Tracker {
     _amplitude.trackingSessionEvents(true);
   }
 
+  /// Amplitude Tracker: Set user id
+  @override
+  void setUserId(String userId) {
+    _amplitude.setUserId(userId);
+  }
+  
   /// Amplitude Tracker: User properties configuration
   @override
   void setUserProperties(Map<String, dynamic> properties) {

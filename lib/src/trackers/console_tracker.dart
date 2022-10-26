@@ -13,6 +13,12 @@ class ConsoleTracker implements Tracker {
     debugPrint('ConsoleTracker initialized');
   }
 
+/// Console Tracker print configured user id
+  @override
+  void setUserId(String userId) {
+    debugPrint('ConsoleTracker: Seting user id -> $userId');
+  }
+
   /// Console Tracker print user properties.
   @override
   void setUserProperties(Map<String, dynamic> properties) {

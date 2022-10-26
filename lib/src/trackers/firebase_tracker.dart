@@ -11,6 +11,12 @@ class FirebaseTracker implements Tracker {
     _analytics = FirebaseAnalytics.instance;
   }
 
+/// Firebase Tracker: Set userId
+  @override
+  void setUserId(String userId) {
+    _analytics.setUserId(id: userId);
+  }
+
   /// Firebase Tracker: User properties configuration
   @override
   void setUserProperties(Map<String, dynamic> properties) {
@@ -21,8 +27,7 @@ class FirebaseTracker implements Tracker {
 
   /// Firebase Tracker: Log event in Firebase
   @override
-  Future<void> track(String eventName,
-      [Map<String, dynamic>? properties]) async {
+  Future<void> track(String eventName, [Map<String, dynamic>? properties]) async {
     await _analytics.logEvent(
       name: eventName,
       parameters: properties,

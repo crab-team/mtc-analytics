@@ -21,6 +21,16 @@ class AnalyticsService {
     }
   }
 
+  /// Set user id for each [Tracker].
+  void setUserId(String userId) {
+    if (_trackers == null) {
+      throw Exception('Call init() before set user properties');
+    }
+    for (var tracker in _trackers!) {
+      tracker.setUserId(userId);
+    }
+  }
+
   /// Set user properties for each [Tracker].
   ///
   /// In most analytics tools we can register user properties to better understand the type of users
