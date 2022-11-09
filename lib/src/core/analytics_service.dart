@@ -22,7 +22,7 @@ class AnalyticsService {
   }
 
   /// Set user id for each [Tracker].
-  void setUserId(String userId) {
+  void setUserId(String? userId) {
     if (_trackers == null) {
       throw Exception('Call init() before set user properties');
     }
