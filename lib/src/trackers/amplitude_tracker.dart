@@ -21,8 +21,9 @@ class AmplitudeTracker implements Tracker {
   }
 
   /// Amplitude Tracker: Set user id
+  /// Setting a null [id] removes the user id.
   @override
-  void setUserId(String userId) {
+  void setUserId(String? userId) {
     _amplitude.setUserId(userId);
   }
   

@@ -15,7 +15,7 @@ class ConsoleTracker implements Tracker {
 
 /// Console Tracker print configured user id
   @override
-  void setUserId(String userId) {
+  void setUserId(String? userId) {
     debugPrint('ConsoleTracker: Seting user id -> $userId');
   }
 

@@ -11,9 +11,10 @@ class FirebaseTracker implements Tracker {
     _analytics = FirebaseAnalytics.instance;
   }
 
-/// Firebase Tracker: Set userId
+  /// Firebase Tracker: Set userId
+  /// Setting a null [id] removes the user id.
   @override
-  void setUserId(String userId) {
+  void setUserId(String? userId) {
     _analytics.setUserId(id: userId);
   }
 
