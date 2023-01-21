@@ -1,4 +1,4 @@
-## 1.1.2
+## 1.1.2+10
 
 * Changed: Updated `firease_core`, `firebase_analytics` and `amplitude_flutter` dependencies
 
