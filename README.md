@@ -6,7 +6,6 @@
     <a href="https://pub.dev/packages/mtc_analytics"><img src="https://img.shields.io/pub/v/mtc_analytics.svg" alt="Pub.dev Badge"></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="MIT License Badge"></a>
     <a href="https://github.com/crab-team/mtc-analytics"><img src="https://img.shields.io/badge/platform-flutter-ff69b4.svg" alt="Flutter Platform Badge"></a>
-    [![.github/workflows/main.yml](https://github.com/crab-team/mtc-analytics/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/crab-team/mtc-analytics/actions/workflows/main.yml)
 </p>
 
 # MTC - Analytics
