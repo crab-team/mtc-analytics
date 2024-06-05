@@ -31,7 +31,7 @@ class FirebaseTracker implements Tracker {
   Future<void> track(String eventName, [Map<String, dynamic>? properties]) async {
     await _analytics.logEvent(
       name: eventName,
-      parameters: properties,
+      parameters: properties as Map<String, Object>?,
     );
   }
 }
