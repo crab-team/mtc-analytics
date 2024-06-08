@@ -1,3 +1,7 @@
+## 2.0.0+12
+
+* Changed: Updated `Tracker.track` method to support Firebase Analytics params
+
 ## 1.2.0+11
 
 * Changed: Updated `firease_core` and `firebase_analytics` dependencies
