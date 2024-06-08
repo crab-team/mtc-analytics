@@ -28,10 +28,10 @@ class FirebaseTracker implements Tracker {
 
   /// Firebase Tracker: Log event in Firebase
   @override
-  Future<void> track(String eventName, [Map<String, dynamic>? properties]) async {
+  Future<void> track(String eventName, [Map<String, Object>? properties]) async {
     await _analytics.logEvent(
       name: eventName,
-      parameters: properties as Map<String, Object>?,
+      parameters: properties,
     );
   }
 }
