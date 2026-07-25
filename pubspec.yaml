@@ -1,6 +1,6 @@
 name: mtc_analytics
 description: All in one. This package was created to simplify the job of logging events across different analytics platforms.
-version: 2.0.0+12
+version: 3.0.0
 homepage: https://github.com/crab-team/mtc-analytics
 
 environment:
@@ -8,14 +8,14 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  amplitude_flutter: ^3.13.0
-  firebase_analytics: ^11.0.0
-  firebase_core: ^3.0.0
+  amplitude_flutter: ^4.6.2
+  firebase_analytics: ^12.4.5
+  firebase_core: ^4.12.1
   flutter:
     sdk: flutter
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
 
