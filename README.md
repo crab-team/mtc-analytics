@@ -27,7 +27,7 @@ To use Firebase Analytics, you need to add your app to your Firebase project in 
 
 ## Features
 
-With this package you'll can:
+With this package you can:
 
 -   Use **built-in trackers** or add **new trackers** that you need in your application.
 -   Configure **User properties**
@@ -37,7 +37,7 @@ With this package you'll can:
 
 ### Initialization
 
-Before try to set user properties or track any event, you must initialize the `AnalyticsService` with according trackers.
+Before trying to set user properties or track any event, you must initialize the `AnalyticsService` with the corresponding trackers.
 
 ```dart
 List<Tracker> trackers = [MyCustomTracker()];
@@ -46,7 +46,7 @@ AnalyticsService analyticsService = AnalyticsService.instance;
 analyticsService.init(trackers);
 ```
 
-At this time, we already implemented a `ConsoleTracker` for debugging purpose, `AmplitudeTracker` and `FirebaseTracker`. You can use them
+At this time, we have implemented a `ConsoleTracker` for debugging purposes, `AmplitudeTracker`, and `FirebaseTracker`. You can use them:
 
 ```dart
 List<Tracker> trackers = [
@@ -75,7 +75,18 @@ AnalyticsService.instance.setUserProperties(
 
 ### Log events
 
-To log events you need to create **you own event class**. For example, if the app needs to log an event when the user increments a counter:
+To log events, you can instantiate the `Event` class directly for simple, one-off events:
+
+```dart
+AnalyticsService.instance.track(
+    Event(
+        name: 'button_clicked',
+        properties: {'button_name': 'submit'},
+    ),
+);
+```
+
+Or subclass the `Event` class if you prefer structured, reusable events. For example:
 
 ```dart
 class IncrementCounterEvent extends Event {
@@ -89,7 +100,7 @@ class IncrementCounterEvent extends Event {
 }
 ```
 
-After that, you can call `AnalyticsService.instance.track` and pass it the created event
+And then call `AnalyticsService.instance.track` and pass it the created event:
 
 ```dart
 AnalyticsService.instance.track(
@@ -101,7 +112,7 @@ AnalyticsService.instance.track(
 
 Visit [our page](https://mtc-flutter.com) to know more about us!
 
-If our content like you can help us with a coffee to continue creating and collaborating with the Flutter community
+If you like our work, you can help us with a coffee to continue creating and collaborating with the Flutter community.
 <br>
 
 <p align="center">
