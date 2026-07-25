@@ -47,6 +47,8 @@ class MockTracker implements Tracker {
   }
 }
 
+class AnotherMockTracker extends MockTracker {}
+
 void main() {
   setUp(() {
     AnalyticsService.reset();
@@ -190,6 +192,57 @@ void main() {
       final event = Event(name: 'ad_hoc_event', properties: {'value': 42});
       expect(event.name, equals('ad_hoc_event'));
       expect(event.properties, equals({'value': 42}));
+    });
+  });
+
+  group('AnalyticsService - Privacy / GDPR (Enabled/Disabled states)', () {
+    late AnalyticsService service;
+    late MockTracker tracker1;
+    late MockTracker tracker2;
+
+    setUp(() {
+      tracker1 = MockTracker();
+      tracker2 = AnotherMockTracker();
+      service = AnalyticsService();
+      service.init([tracker1, tracker2]);
+    });
+
+    test('ignores tracking, setUserId, and setUserProperties when globally disabled', () {
+      service.enabled = false;
+
+      service.setUserId('user-xyz');
+      service.setUserProperties({'age': 25});
+      service.track(Event(name: 'click'));
+
+      expect(tracker1.userId, isNull);
+      expect(tracker2.userId, isNull);
+      expect(tracker1.userProperties, isNull);
+      expect(tracker2.userProperties, isNull);
+      expect(tracker1.trackedEvents, isEmpty);
+      expect(tracker2.trackedEvents, isEmpty);
+    });
+
+    test('ignores actions on specific disabled tracker types while allowing others', () {
+      // Disable tracker1 by type, keep tracker2 enabled
+      service.setTrackerEnabled(tracker1.runtimeType, enabled: false);
+
+      expect(service.isTrackerEnabled(tracker1.runtimeType), isFalse);
+      expect(service.isTrackerEnabled(tracker2.runtimeType), isTrue);
+
+      service.setUserId('user-abc');
+      service.setUserProperties({'tier': 'gold'});
+      service.track(Event(name: 'purchase'));
+
+      // tracker1 is disabled, should have no data
+      expect(tracker1.userId, isNull);
+      expect(tracker1.userProperties, isNull);
+      expect(tracker1.trackedEvents, isEmpty);
+
+      // tracker2 is enabled, should have data
+      expect(tracker2.userId, equals('user-abc'));
+      expect(tracker2.userProperties, equals({'tier': 'gold'}));
+      expect(tracker2.trackedEvents, hasLength(1));
+      expect(tracker2.trackedEvents.first['name'], equals('purchase'));
     });
   });
 }

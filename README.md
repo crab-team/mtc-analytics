@@ -121,6 +121,33 @@ AnalyticsService.instance.track(
 
 ## Advanced
 
+### Privacy & GDPR Compliance (Opt-Out)
+
+You can dynamically enable or disable tracking globally, or toggle specific trackers on/off based on user consent (e.g., when they accept or reject cookies/privacy agreements).
+
+#### Global Toggle
+If `enabled` is set to `false`, the service will silently ignore all event tracking, user ID, and user property updates:
+
+```dart
+// Opt-out globally
+AnalyticsService.instance.enabled = false;
+
+// These calls do nothing when disabled
+AnalyticsService.instance.track(Event(name: 'click'));
+AnalyticsService.instance.setUserId('user-123');
+```
+
+#### Individual Tracker Toggle
+You can also disable or enable tracking for a specific tracker class type:
+
+```dart
+// Disable only Firebase, keep others enabled
+AnalyticsService.instance.setTrackerEnabled(FirebaseTracker, enabled: false);
+
+// Check if a tracker is currently enabled
+bool isFirebaseEnabled = AnalyticsService.instance.isTrackerEnabled(FirebaseTracker);
+```
+
 ### Creating a Custom Tracker
 
 To integrate a new analytics platform (e.g., Mixpanel, Segment, or a custom internal API), implement the `Tracker` interface:

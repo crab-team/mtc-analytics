@@ -1,3 +1,10 @@
+## 3.2.0
+
+* Added: Privacy & GDPR compliance support (global `enabled` toggle on `AnalyticsService` to dynamically opt-out of analytics).
+* Added: Individual tracker toggles via `AnalyticsService.setTrackerEnabled` to enable or disable specific trackers by class type.
+* Added: Unit tests verifying privacy toggles and opt-out behaviors.
+* Added: Detailed documentation in README for GDPR compliance toggles.
+
 ## 3.1.0
 
 * Added: Made `Event` a concrete class to allow direct instantiation for quick ad-hoc event logging.
