@@ -7,16 +7,16 @@ import 'package:mtc_analytics/src/core/tracker.dart';
 /// For example: verify that every time we use our service we do it correctly,
 /// that the events are “tracked” with the name and properties that we indicate, etc.
 class ConsoleTracker implements Tracker {
-  /// Console Tracker initilization.
+  /// Console Tracker initialization.
   @override
   void init() {
     debugPrint('ConsoleTracker initialized');
   }
 
-/// Console Tracker print configured user id
+  /// Console Tracker print configured user id.
   @override
   void setUserId(String? userId) {
-    debugPrint('ConsoleTracker: Seting user id -> $userId');
+    debugPrint('ConsoleTracker: Setting user id -> $userId');
   }
 
   /// Console Tracker print user properties.
@@ -27,7 +27,7 @@ class ConsoleTracker implements Tracker {
 
   /// Console Tracker print logged event.
   @override
-  void track(String eventName, [Map<String, dynamic>? properties]) {
+  void track(String eventName, [Map<String, Object>? properties]) {
     debugPrint(
       'ConsoleTracker $eventName ${properties != null ? ', $properties' : ''}',
     );

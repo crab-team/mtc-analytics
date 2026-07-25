@@ -1,5 +1,5 @@
-/// Abstraction for the events that we to log.
-abstract class Event {
+/// Representation of the events to log.
+class Event {
   final String name;
   final Map<String, Object>? properties;
 

@@ -1,33 +1,50 @@
+import 'package:flutter/foundation.dart';
 import 'package:mtc_analytics/src/core/event.dart';
 import 'package:mtc_analytics/src/core/tracker.dart';
 
-/// This service allow interact with the integrated trackers (Firebase Analytics, Amplitude, etc).
+/// This service allows interacting with the integrated trackers (Firebase Analytics, Amplitude, etc).
 class AnalyticsService {
+  List<Tracker>? _trackers;
   static AnalyticsService? _instance;
-  static List<Tracker>? _trackers;
 
-  AnalyticsService._createInstance();
+  /// Public constructor to allow direct instantiability for dependency injection and testing.
+  AnalyticsService({List<Tracker>? trackers}) : _trackers = trackers;
 
+  /// Returns the default global instance of [AnalyticsService].
   static AnalyticsService get instance {
-    _instance ??= AnalyticsService._createInstance();
+    _instance ??= AnalyticsService();
     return _instance!;
+  }
+
+  /// Resets the global instance of [AnalyticsService]. Useful for unit tests.
+  @visibleForTesting
+  static void reset() {
+    _instance = null;
   }
 
   /// Init each [Tracker].
   void init(List<Tracker> trackers) {
     _trackers = trackers;
     for (var tracker in _trackers!) {
-      tracker.init();
+      try {
+        tracker.init();
+      } catch (e, stackTrace) {
+        debugPrint('AnalyticsService: Failed to initialize ${tracker.runtimeType}: $e\n$stackTrace');
+      }
     }
   }
 
   /// Set user id for each [Tracker].
   void setUserId(String? userId) {
     if (_trackers == null) {
-      throw Exception('Call init() before set user properties');
+      throw StateError('Call init() before setting user id');
     }
     for (var tracker in _trackers!) {
-      tracker.setUserId(userId);
+      try {
+        tracker.setUserId(userId);
+      } catch (e, stackTrace) {
+        debugPrint('AnalyticsService: Failed to set user id on ${tracker.runtimeType}: $e\n$stackTrace');
+      }
     }
   }
 
@@ -37,20 +54,28 @@ class AnalyticsService {
   /// that use our application.
   void setUserProperties(Map<String, dynamic> properties) {
     if (_trackers == null) {
-      throw Exception('Call init() before set user properties');
+      throw StateError('Call init() before setting user properties');
     }
     for (var tracker in _trackers!) {
-      tracker.setUserProperties(properties);
+      try {
+        tracker.setUserProperties(properties);
+      } catch (e, stackTrace) {
+        debugPrint('AnalyticsService: Failed to set user properties on ${tracker.runtimeType}: $e\n$stackTrace');
+      }
     }
   }
 
   /// Log event in each [Tracker].
   void track(Event event) {
     if (_trackers == null) {
-      throw Exception('Call init() before track any event');
+      throw StateError('Call init() before tracking events');
     }
     for (var tracker in _trackers!) {
-      tracker.track(event.name, event.properties);
+      try {
+        tracker.track(event.name, event.properties);
+      } catch (e, stackTrace) {
+        debugPrint('AnalyticsService: Failed to track event "${event.name}" on ${tracker.runtimeType}: $e\n$stackTrace');
+      }
     }
   }
 }

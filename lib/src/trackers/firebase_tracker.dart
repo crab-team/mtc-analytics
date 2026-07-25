@@ -1,4 +1,5 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:mtc_analytics/mtc_analytics.dart';
 
 /// Firebase Tracker implementation.
@@ -11,14 +12,14 @@ class FirebaseTracker implements Tracker {
     _analytics = FirebaseAnalytics.instance;
   }
 
-  /// Firebase Tracker: Set userId
-  /// Setting a null [id] removes the user id.
+  /// Firebase Tracker: Set userId.
+  /// Setting a null [userId] removes the user id.
   @override
   void setUserId(String? userId) {
     _analytics.setUserId(id: userId);
   }
 
-  /// Firebase Tracker: User properties configuration
+  /// Firebase Tracker: User properties configuration.
   @override
   void setUserProperties(Map<String, dynamic> properties) {
     properties.forEach((key, value) {
@@ -26,12 +27,14 @@ class FirebaseTracker implements Tracker {
     });
   }
 
-  /// Firebase Tracker: Log event in Firebase
+  /// Firebase Tracker: Log event in Firebase.
   @override
-  Future<void> track(String eventName, [Map<String, Object>? properties]) async {
-    await _analytics.logEvent(
+  void track(String eventName, [Map<String, Object>? properties]) {
+    _analytics.logEvent(
       name: eventName,
       parameters: properties,
-    );
+    ).catchError((e, stackTrace) {
+      debugPrint('FirebaseTracker: Failed to log event: $e\n$stackTrace');
+    });
   }
 }
